@@ -221,12 +221,17 @@ const SRLLightboxGallery = ({
       })
   }
   async function handleImageDownload() {
-    const a = document.createElement('a')
-    a.href = await toDataURL(selectedElement.source)
-    a.download = ''
-    document.body.appendChild(a)
-    a.click()
-    document.body.removeChild(a)
+    if(onImageDownload) onImageDownload(selectedElement)
+    else {
+      const a = document.createElement('a')
+
+      a.href = await toDataURL(selectedElement.source)
+      a.download = ''
+      document.body.appendChild(a)
+      a.click()
+      document.body.removeChild(a)
+    }
+    
   }
 
   // Handle Current Element
@@ -512,7 +517,7 @@ const SRLLightboxGallery = ({
     handleCloseLightbox,
     handleCurrentElement,
     handleFullScreen,
-    handleImageDownload: onImageDownload || handleImageDownload,
+    handleImageDownload,
     handleNextElement,
     handlePanzoom,
     handlePrevElement,
