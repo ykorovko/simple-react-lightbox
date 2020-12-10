@@ -221,7 +221,7 @@ const SRLLightboxGallery = ({
       })
   }
   async function handleImageDownload() {
-    if(onImageDownload) {
+    if (onImageDownload) {
       onImageDownload(selectedElement)
     } else {
       const a = document.createElement('a')
@@ -518,7 +518,7 @@ const SRLLightboxGallery = ({
     handleCloseLightbox,
     handleCurrentElement,
     handleFullScreen,
-    handleImageDownload,
+    handleImageDownload: () => onImageDownload(selectedElement),
     handleNextElement,
     handlePanzoom,
     handlePrevElement,
