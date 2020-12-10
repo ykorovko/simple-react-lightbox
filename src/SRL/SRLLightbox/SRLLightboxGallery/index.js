@@ -221,8 +221,9 @@ const SRLLightboxGallery = ({
       })
   }
   async function handleImageDownload() {
-    if(onImageDownload) onImageDownload(selectedElement)
-    else {
+    if(onImageDownload) {
+      onImageDownload(selectedElement)
+    } else {
       const a = document.createElement('a')
 
       a.href = await toDataURL(selectedElement.source)
