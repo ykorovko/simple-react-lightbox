@@ -66,7 +66,8 @@ const SRLLightboxGallery = ({
     onCountSlides,
     onSlideChange,
     onLightboxClosed,
-    onLightboxOpened
+    onLightboxOpened,
+    onImageDownload
   } = callbacks
 
   // Callbacks functions
@@ -511,7 +512,7 @@ const SRLLightboxGallery = ({
     handleCloseLightbox,
     handleCurrentElement,
     handleFullScreen,
-    handleImageDownload,
+    handleImageDownload: onImageDownload || handleImageDownload,
     handleNextElement,
     handlePanzoom,
     handlePrevElement,
